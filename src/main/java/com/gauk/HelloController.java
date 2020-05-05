@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HelloController {
 	
-	@GetMapping("/nulltest")
+	@GetMapping("/filetest")
 	public String nullExceptionTest() throws FileNotFoundException {
 		FileReader fr = 
 			      new FileReader("C:\\test.txt");
@@ -31,5 +31,25 @@ public class HelloController {
 		
 	}
 	
+	@GetMapping("/nulltest")
+	public String nullTest() {
+		User user = null;
+		return user.getName();
+	}
+	
+	
+}
+
+
+class User{
+	public String name;
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
 	
 }
